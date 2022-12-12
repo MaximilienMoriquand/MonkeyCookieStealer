@@ -2,6 +2,7 @@ import os
 import http.server
 import argparse
 from urllib.parse import urlparse
+from urllib.parse import parse_qs
 import socketserver
 import json
 import re
@@ -38,13 +39,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_response(200)
         return
     def log_message(self,format, *args):
-        print("########")
+        print("---- Context ----")
         query=urlparse((self.path)) 
         date= datetime.datetime.now()
         print ("\t-Time: %s" %date )
         print("\t-path: ",query.path)
         print("\t-query: ",query.query)
-        print("#######")
+        print("---- HEADER ----\n ",self.headers)
+        print("---- Query Component ----\n")
+        for i,j in parse_qs(query.query).items():
+            print(i.strip(),'>>',j)
+        print("----------------\n")
     
 
 
