@@ -1,0 +1,20 @@
+{
+	"GET":
+	{
+	
+		"response": "<p>ok GET</p>",
+		"code": 200	
+	},
+
+	 "POST":
+	{
+		"response": "<p>ok POST</p>",
+		"code": 200	
+	},
+
+	"GET IMG":
+	{
+		"response": "Your url's Image Here",
+		"code": 200
+	}	
+}
